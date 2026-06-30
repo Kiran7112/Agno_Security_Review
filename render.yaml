@@ -2,10 +2,10 @@ services:
   - type: web
     name: agno-security-review
     env: python
-    plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: python src/main.py
     envVars:
+      - key: PYTHON_VERSION
+        scope: build
+        value: "3.11.0"
       - key: GITHUB_TOKEN
         scope: run
         value: your_github_token_here
@@ -21,3 +21,6 @@ services:
       - key: ENVIRONMENT
         scope: run
         value: production
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python src/main.py
