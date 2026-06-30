@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: agno-security-review
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python src/main.py
+    envVars:
+      - key: GITHUB_TOKEN
+        scope: run
+        value: your_github_token_here
+      - key: OPENAI_API_KEY
+        scope: run
+        value: your_openai_api_key_here
+      - key: WEBHOOK_SECRET
+        scope: run
+        value: test-secret-123
+      - key: DATABASE_URL
+        scope: run
+        value: sqlite:///./security_audit.db
+      - key: ENVIRONMENT
+        scope: run
+        value: production

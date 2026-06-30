@@ -1,75 +1,103 @@
-# 🚀 Simple Setup - Agno on Replit
+# 🚀 Simple Setup - Agno on Render
 
 ## You Already Did This! ✅
 
 ```
 ✅ Code pushed to GitHub
-✅ Imported to Replit
-✅ You're halfway there!
+✅ Ready to deploy to Render
+✅ Super easy!
 ```
 
 ---
 
-## STEP 1: Add Secrets to Replit (2 minutes)
-
-### In Replit Console
+## STEP 1: Create Render Account (2 minutes)
 
 ```
-Left Sidebar → Click "Secrets" (lock icon)
-
-Add 3 secrets:
-
-1. GITHUB_TOKEN
-   Value: your_github_token_here
-
-2. OPENAI_API_KEY  
-   Value: your_openai_api_key_here
-
-3. WEBHOOK_SECRET
-   Value: test-secret-123 (any random string)
+1. Go: https://render.com
+2. Click "Sign up"
+3. Sign up with GitHub (easiest!)
+4. Authorize GitHub
+5. Done!
 ```
-
-**That's it! Replit handles everything else.**
 
 ---
 
-## STEP 2: Run the Project
+## STEP 2: Deploy on Render (5 minutes)
 
-### Click "Run" Button
-
-```
-In Replit:
-1. Top of screen → Click "Run" button
-2. Wait 30 seconds...
-3. You see: "Uvicorn running on..."
-4. Replit gives you a public URL
-5. Done! ✅
-```
-
-### Your Public URL
+### Create New Service
 
 ```
-Replit shows at top:
-https://agno-security-xyz.replit.dev
+In Render Dashboard:
+1. Click "New +" → "Web Service"
+2. Select your GitHub repo (agno-project)
+3. Click "Connect"
+```
+
+### Configure Service
+
+```
+Fill in:
+Name: agno-security-review
+
+Environment: Python 3
+
+Build Command: pip install -r requirements.txt
+
+Start Command: python src/main.py
+
+Region: Choose closest to you
+```
+
+### Add Environment Variables
+
+```
+Click "Environment" tab
+
+Add 3 variables:
+1. GITHUB_TOKEN = your_github_token_here
+2. OPENAI_API_KEY = your_openai_key_here
+3. WEBHOOK_SECRET = test-secret-123
+
+(Render encrypts them automatically!)
+```
+
+### Deploy
+
+```
+Click "Deploy"
+
+Wait 2-3 minutes...
+
+You see: "Your service is live"
+
+Copy the URL shown
+```
+
+---
+
+## STEP 3: Your Public URL
+
+```
+Render shows:
+https://agno-security-review.onrender.com
 
 This is your API endpoint!
-Copy this URL.
 ```
 
 ---
 
-## STEP 3: Add GitHub Webhook (2 minutes)
+## STEP 4: Add GitHub Webhook (2 minutes)
 
 ### Configure on GitHub
 
 ```
-1. Go to your test app GitHub repo
-2. Settings → Webhooks → Add webhook
+Go to your test app GitHub repo:
+Settings → Webhooks → Add webhook
 
 Fill in:
-  Payload URL: https://agno-security-xyz.replit.dev/api/v1/webhook
+  Payload URL: https://agno-security-review.onrender.com/api/v1/webhook
   Content type: application/json
-  Secret: test-secret-123 (same as WEBHOOK_SECRET)
+  Secret: test-secret-123
   Events: Pull requests
   Active: ✓ Yes
 
@@ -78,7 +106,7 @@ Click "Add webhook"
 
 ---
 
-## STEP 4: Test on Your Buggy App (2 minutes)
+## STEP 5: Test on Your Buggy App (2 minutes)
 
 ### Create Test PR
 
@@ -89,7 +117,7 @@ In your test application repo:
    git checkout -b test/security
 
 2. Add buggy code:
-   
+
    def login_user(username, password):
        # BUG 1: SQL Injection
        query = "SELECT * FROM users WHERE username = '" + username + "'"
@@ -107,7 +135,7 @@ In your test application repo:
    git commit -m "Add login function"
    git push origin test/security
 
-4. Create Pull Request
+4. Create Pull Request on GitHub
 
 5. Wait 30 seconds...
 
@@ -137,74 +165,36 @@ Found 3 Vulnerabilities:
    Why: MD5 is broken
    Fix: Use bcrypt instead
 
-✅ Recommendation: Block PR. Fix issues.
-```
-
----
-
-## View Dashboard
-
-### On Replit
-
-```
-Replit automatically shows:
-- Welcome page at: https://agno-security-xyz.replit.dev
-
-For Dashboard:
-1. Click Replit's web preview
-2. Or go to: https://agno-security-xyz.replit.dev:8501
-3. See live statistics and metrics
-```
-
----
-
-## Simple Configuration
-
-### Replit Already Handles:
-
-```
-✅ Python 3.10 installed
-✅ Dependencies installed (requirements.txt)
-✅ Database created automatically
-✅ Public URL provided
-✅ HTTPS enabled
-✅ Always running
-✅ Auto-restart if crashes
-```
-
-### You Only Need:
-
-```
-1. Add 3 secrets (GITHUB_TOKEN, OPENAI_API_KEY, WEBHOOK_SECRET)
-2. Click Run
-3. Copy URL
-4. Add GitHub webhook
-5. Done!
+✅ Recommendation: Block PR
 ```
 
 ---
 
 ## API Keys Are Safe ✅
 
-### How Replit Protects Them
+### How Render Protects Them
 
 ```
-✅ Secrets stored encrypted
-✅ Never shown in code
-✅ Never appear in logs
-✅ Only accessible to your project
-✅ Deleted if you delete the project
+✅ Environment variables encrypted
+✅ Never logged or visible
+✅ Only your service can access
+✅ Secure by default
 ```
 
-### Your Code Uses Them Safely
+---
 
-```python
-# src/config.py (SAFE)
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+## Simple Configuration
 
-# Reads from Replit secrets, not hardcoded
-# API keys stay SAFE ✓
+### Render Handles Everything:
+
+```
+✅ Python 3.10 installed
+✅ Dependencies installed
+✅ Database created
+✅ SSL/HTTPS enabled
+✅ Always running (unless free tier sleeps)
+✅ Auto-restart if crashes
+✅ Easy scaling
 ```
 
 ---
@@ -233,7 +223,7 @@ element.innerHTML = user_input
 
 ---
 
-## Workflow on Replit
+## Workflow on Render
 
 ```
 Your Buggy App (GitHub)
@@ -242,7 +232,7 @@ Create PR with bugs
         ↓
 GitHub webhook triggers
         ↓
-Replit receives webhook
+Render receives webhook
         ↓
 Agno analyzes (30 seconds)
         ↓
@@ -263,105 +253,94 @@ Shows "FIXED" ✅
 
 ## Troubleshooting
 
+### Issue: Service won't deploy
+
+**Fix:**
+```
+1. Check GitHub connection is authorized
+2. Check requirements.txt is valid
+3. Look at Render build logs
+4. Check Python version is 3.10+
+```
+
 ### Issue: No Agno comment on PR
 
 **Fix:**
 ```
-1. Check Replit is running (green "Run" status)
+1. Check Render service is running (green "Live")
 2. Check webhook URL is correct
 3. Check secret matches WEBHOOK_SECRET
 4. Check GitHub token has repo access
-5. Check PR is on test app repo
+5. Look at Render logs
 ```
 
-### Issue: Replit stopped running
+### Issue: Service keeps sleeping (free tier)
 
-**Fix:**
+**Upgrade to paid plan:**
 ```
-1. Go to Replit
-2. Check if there's an error message
-3. Click "Run" again
-4. Wait 30 seconds
-```
-
-### Issue: Dashboard not loading
-
-**Fix:**
-```
-1. Make sure Replit app is running
-2. Try: https://agno-security-xyz.replit.dev:8501
-3. Refresh page
+Render Dashboard → Settings
+Click "Upgrade to paid"
+($7/month for always-on)
 ```
 
 ---
 
 ## Quick Checklist
 
-- [ ] Added GITHUB_TOKEN secret in Replit
-- [ ] Added OPENAI_API_KEY secret in Replit
-- [ ] Added WEBHOOK_SECRET secret in Replit
-- [ ] Clicked "Run" button
-- [ ] Replit shows public URL
-- [ ] Copied Replit URL
+- [ ] Created Render account
+- [ ] Connected GitHub repo
+- [ ] Added GITHUB_TOKEN environment variable
+- [ ] Added OPENAI_API_KEY environment variable
+- [ ] Added WEBHOOK_SECRET environment variable
+- [ ] Clicked Deploy
+- [ ] Service says "Live"
+- [ ] Copied Render URL
 - [ ] Added GitHub webhook with URL
 - [ ] Created test PR with bugs
 - [ ] Saw Agno comment ✅
-- [ ] Tested all vulnerabilities
+- [ ] Tested vulnerabilities detected ✅
 
 ---
 
 ## That's It! ✅
 
-**Super Simple with Replit:**
+**Super Simple with Render:**
 
 ```
-1. Add secrets (2 min)
-2. Click Run (1 min)
-3. Copy URL (1 min)
-4. Add webhook (2 min)
+1. Create account (2 min)
+2. Deploy from GitHub (5 min)
+3. Add environment variables (2 min)
+4. Add GitHub webhook (2 min)
 5. Create test PR (1 min)
 6. See results (30 sec)
 
-Total: ~7 minutes!
+Total: ~12 minutes!
 ```
 
 ---
 
-## API Key Safety (Replit Handles It!)
+## Why Render is Better Than Replit
 
-```
-✅ Keys stored safely in Replit Secrets
-✅ Never in code
-✅ Never on GitHub
-✅ Encrypted by Replit
-✅ Won't expire from deploying
-✅ Your setup is SECURE
-```
+| Feature | Render | Replit |
+|---------|--------|--------|
+| **Deploy** | Auto from GitHub | Manual |
+| **Speed** | Fast startup | Can be slow |
+| **Free tier** | ✅ Yes | ✅ Yes |
+| **Always on** | $7/month | Hard to keep on |
+| **Performance** | Better | Adequate |
+| **Scaling** | Easy | Limited |
+| **Production ready** | Yes | No |
+| **Logs** | Detailed | Limited |
 
 ---
 
-## Test Results You'll See
+## Render URLs
 
-### On GitHub PR
-
-```
-Agno comments with:
-- Vulnerabilities found
-- Severity (CRITICAL/HIGH/MEDIUM)
-- Why it's dangerous
-- How to fix it
-- Recommendation (BLOCK or REVIEW)
-```
-
-### On Replit Dashboard
-
-```
-- Total reviews
-- Vulnerabilities found
-- Severity breakdown
-- Developer stats
-- Security trends
-```
+| Service | URL |
+|---------|-----|
+| **Render Dashboard** | https://dashboard.render.com |
+| **Your Service** | https://agno-security-review.onrender.com |
+| **GitHub** | Your test app repo |
 
 ---
 
@@ -369,14 +348,14 @@ Agno comments with:
 
 **You have:**
 - ✅ Code on GitHub
-- ✅ Project on Replit
-- ✅ Public API running
+- ✅ Deployed on Render
+- ✅ Public API running 24/7
 - ✅ Ready to test
 
 **Next:**
-1. Add 3 secrets to Replit
-2. Click Run
+1. Deploy on Render (5 min)
+2. Add environment variables (2 min)
 3. Test on your buggy app
-4. See Agno detect bugs
 
 **Deploy and test NOW!** 🎉
+it 

@@ -4,8 +4,8 @@
 
 ### 📚 Essential Documentation
 
-- **[SETUP_GUIDE.md](SETUP_GUIDE.md)** - Simple Replit setup (START HERE!)
-- **[REPLIT_QUICK_START.md](REPLIT_QUICK_START.md)** - 3 steps only
+- **[RENDER_QUICK_START.md](RENDER_QUICK_START.md)** - 5 steps, 10 minutes (START HERE!)
+- **[SETUP_GUIDE.md](SETUP_GUIDE.md)** - Detailed Render setup guide
 - **[CLAUDE.md](CLAUDE.md)** - Project guidelines
 - **[README.md](README.md)** - Features & usage
 
@@ -14,7 +14,6 @@
 - **[PROJECT_COMPLETE.md](PROJECT_COMPLETE.md)** - What's built
 - **[FULL_IMPLEMENTATION_SUMMARY.md](FULL_IMPLEMENTATION_SUMMARY.md)** - Feature list
 - **[API_KEY_SAFETY.md](API_KEY_SAFETY.md)** - Security info
-- **[FIREBASE_PYTHON_GUIDE.md](FIREBASE_PYTHON_GUIDE.md)** - Python versions
 
 ---
 
@@ -22,32 +21,37 @@
 
 ```
 ✅ Code pushed to GitHub
-✅ Imported to Replit
-✅ Ready to configure!
+✅ Ready to deploy to Render
+✅ Only 10 minutes away from live!
 ```
 
 ---
 
-## 🎯 Next 3 Steps
+## 🎯 Next 5 Steps
 
-### Step 1: Add Secrets (2 min)
+### Step 1: Create Render Account (2 min)
 ```
-Replit → Secrets (lock icon)
-Add GITHUB_TOKEN, OPENAI_API_KEY, WEBHOOK_SECRET
-```
-
-### Step 2: Click Run (1 min)
-```
-Replit → RUN button
-Wait for: "Uvicorn running..."
+https://render.com → Sign up with GitHub
 ```
 
-### Step 3: Test (5 min)
+### Step 2: Deploy (5 min)
 ```
-Copy Replit URL
-Add GitHub webhook
-Create test PR
-See Agno comment ✅
+Render → New Web Service → Connect GitHub
+```
+
+### Step 3: Add Secrets (2 min)
+```
+Environment tab → Add 3 variables
+```
+
+### Step 4: Get URL (1 min)
+```
+Copy your Render service URL
+```
+
+### Step 5: Test (2 min)
+```
+Add GitHub webhook → Create test PR
 ```
 
 ---
@@ -55,13 +59,13 @@ See Agno comment ✅
 ## 📁 Project Structure
 
 ```
-src/                 → Main application code
+src/                 → Main application
 dashboard/           → Web UI
 tests/              → Unit tests
-SETUP_GUIDE.md      → How to deploy
-REPLIT_QUICK_START  → 3 steps only
+RENDER_QUICK_START  → 5 steps to live
+SETUP_GUIDE.md      → Detailed guide
+render.yaml         → Render config
 requirements.txt    → Dependencies
-.replit             → Replit config
 ```
 
 ---
@@ -70,9 +74,9 @@ requirements.txt    → Dependencies
 
 | Service | URL |
 |---------|-----|
-| **Replit** | https://replit.com/your-project |
-| **API** | https://agno-security-xyz.replit.dev |
-| **GitHub** | https://github.com/your-repo |
+| **Render** | https://render.com |
+| **Your Service** | https://agno-security-review.onrender.com |
+| **GitHub** | Your test app repo |
 
 ---
 
@@ -80,19 +84,34 @@ requirements.txt    → Dependencies
 
 | Task | Time | Guide |
 |------|------|-------|
-| Setup on Replit | 5 min | REPLIT_QUICK_START.md |
-| Full setup | 15 min | SETUP_GUIDE.md |
+| Deploy on Render | 10 min | RENDER_QUICK_START.md |
+| Full setup | 20 min | SETUP_GUIDE.md |
 | Test buggy app | 5 min | SETUP_GUIDE.md |
 | Understand project | 10 min | README.md |
 
 ---
 
-## 🎉 You're Ready!
+## ✨ Why Render?
 
-1. Go to [REPLIT_QUICK_START.md](REPLIT_QUICK_START.md)
-2. Follow 3 simple steps
-3. Start testing your buggy app!
+```
+✅ Auto-deploys from GitHub (no manual clicking)
+✅ Better performance than Replit
+✅ Always on (even free tier)
+✅ Real production-ready
+✅ Better logs and debugging
+✅ Easy environment variables
+✅ Scales easily
+```
 
 ---
 
-**That's it! Super simple on Replit.** 🚀
+## 🎉 You're Ready!
+
+1. Go to [RENDER_QUICK_START.md](RENDER_QUICK_START.md)
+2. Follow 5 simple steps
+3. Deploy in 10 minutes!
+4. Test your buggy app
+
+---
+
+**Ready to go live on Render?** 🚀
