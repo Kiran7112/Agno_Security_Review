@@ -1,6 +1,5 @@
 import streamlit as st
 import requests
-import pandas as pd
 from datetime import datetime, timedelta
 
 st.set_page_config(page_title="Agno Security Dashboard", layout="wide")
@@ -42,8 +41,7 @@ if page == "Overview":
         audits = audits_response.json() if audits_response.status_code == 200 else []
 
         if audits:
-            df = pd.DataFrame(audits)
-            st.dataframe(df, use_container_width=True)
+            st.dataframe(audits, use_container_width=True)
         else:
             st.info("No audits found")
     except Exception as e:
@@ -119,8 +117,7 @@ elif page == "Compliance":
         reports = reports_response.json() if reports_response.status_code == 200 else []
 
         if reports:
-            reports_df = pd.DataFrame(reports)
-            st.dataframe(reports_df, use_container_width=True)
+            st.dataframe(reports, use_container_width=True)
         else:
             st.info("No compliance reports found")
     except Exception as e:
@@ -135,8 +132,7 @@ elif page == "Developers":
         leaderboard = leaderboard_data.get("leaderboard", [])
 
         if leaderboard:
-            df = pd.DataFrame(leaderboard)
-            st.dataframe(df, use_container_width=True)
+            st.dataframe(leaderboard, use_container_width=True)
 
             st.subheader("Security Score Distribution")
             scores = {dev["developer"]: dev["security_score"] for dev in leaderboard}

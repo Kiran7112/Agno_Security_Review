@@ -358,4 +358,3 @@ Total: ~12 minutes!
 3. Test on your buggy app
 
 **Deploy and test NOW!** 🎉
-it 
