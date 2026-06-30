@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  agno-service:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - WEBHOOK_SECRET=${WEBHOOK_SECRET}
+      - DATABASE_URL=sqlite:///./security_audit.db
+    volumes:
+      - ./data:/app/data
+    restart: always

@@ -1,0 +1,10 @@
+run = "pip install -r requirements.txt && python src/main.py"
+modules = ["python-3.10"]
+
+[packager]
+language = "python3"
+ignoredPaths = [".git", "__pycache__", ".env"]
+
+[packager.features]
+packageSearch = true
+guessImports = true
