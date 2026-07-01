@@ -4,7 +4,7 @@
 
 ### 📚 Essential Documentation
 
-- **[AGNO_FRAMEWORK_GUIDE.md](AGNO_FRAMEWORK_GUIDE.md)** - Agno AI agents explained ⭐ **START HERE!**
+- **[AGNO_AGENTIC_SYSTEM.md](AGNO_AGENTIC_SYSTEM.md)** - Your Agno multi-agent system ⭐ **START HERE!**
 - **[RENDER_QUICK_START.md](RENDER_QUICK_START.md)** - Deploy in 10 minutes!
 - **[RENDER_SETUP.md](RENDER_SETUP.md)** - Complete Render setup guide
 - **[README.md](README.md)** - Features & usage
