@@ -3,13 +3,34 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
+def _env(name: str, default: str | None = None) -> str | None:
+    """Read an env var and sanitize common copy/paste mistakes.
+
+    Strips surrounding whitespace/quotes and a stray leading ``Value:`` or
+    ``Key:`` label (which happens when the label is accidentally pasted into
+    a hosting dashboard's value box). Falls back to ``default`` when unset
+    or blank after cleaning.
+    """
+    raw = os.getenv(name)
+    if raw is None:
+        return default
+    cleaned = raw.strip().strip('"').strip("'").strip()
+    low = cleaned.lower()
+    for prefix in ("value:", "key:"):
+        if low.startswith(prefix):
+            cleaned = cleaned[len(prefix):].strip().strip('"').strip("'").strip()
+            break
+    return cleaned or default
+
+
 class Settings:
-    GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
-    OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-    WEBHOOK_SECRET = os.getenv("WEBHOOK_SECRET", "your-secret-key")
-    DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./security_audit.db")
-    ENVIRONMENT = os.getenv("ENVIRONMENT", "development")
-    DEBUG = os.getenv("DEBUG", "false").lower() == "true"
+    GITHUB_TOKEN = _env("GITHUB_TOKEN")
+    OPENAI_API_KEY = _env("OPENAI_API_KEY")
+    WEBHOOK_SECRET = _env("WEBHOOK_SECRET", "your-secret-key")
+    DATABASE_URL = _env("DATABASE_URL", "sqlite:///./security_audit.db")
+    ENVIRONMENT = _env("ENVIRONMENT", "development")
+    DEBUG = (_env("DEBUG", "false") or "false").lower() == "true"
 
     OWASP_TOP_10 = {
         "SQL_INJECTION": "CWE-89",
