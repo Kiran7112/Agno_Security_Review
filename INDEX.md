@@ -4,10 +4,11 @@
 
 ### 📚 Essential Documentation
 
-- **[RENDER_QUICK_START.md](RENDER_QUICK_START.md)** - 5 steps, 10 minutes (START HERE!)
-- **[SETUP_GUIDE.md](SETUP_GUIDE.md)** - Detailed Render setup guide
-- **[CLAUDE.md](CLAUDE.md)** - Project guidelines
+- **[AGNO_FRAMEWORK_GUIDE.md](AGNO_FRAMEWORK_GUIDE.md)** - Agno AI agents explained ⭐ **START HERE!**
+- **[RENDER_QUICK_START.md](RENDER_QUICK_START.md)** - Deploy in 10 minutes!
+- **[RENDER_SETUP.md](RENDER_SETUP.md)** - Complete Render setup guide
 - **[README.md](README.md)** - Features & usage
+- **[CLAUDE.md](CLAUDE.md)** - Project guidelines
 
 ### 📖 Reference Guides
 
@@ -20,38 +21,48 @@
 ## 🚀 Your Current Status
 
 ```
-✅ Code pushed to GitHub
-✅ Ready to deploy to Render
+✅ Agno AI agent implemented
+✅ Code ready for Render
+✅ Deploying to Render.com
 ✅ Only 10 minutes away from live!
 ```
 
 ---
 
-## 🎯 Next 5 Steps
+## 🎯 Next 6 Steps
 
 ### Step 1: Create Render Account (2 min)
 ```
-https://render.com → Sign up with GitHub
+Go to render.com
+Sign up with GitHub
 ```
 
-### Step 2: Deploy (5 min)
+### Step 2: Connect GitHub Repo (1 min)
 ```
-Render → New Web Service → Connect GitHub
-```
-
-### Step 3: Add Secrets (2 min)
-```
-Environment tab → Add 3 variables
+New Web Service → Select repo
+Click Connect
 ```
 
-### Step 4: Get URL (1 min)
+### Step 3: Configure Service (2 min)
 ```
-Copy your Render service URL
+Name: agno-security-review
+Environment: Docker
+Plan: Free
 ```
 
-### Step 5: Test (2 min)
+### Step 4: Add Secrets (1 min)
 ```
-Add GitHub webhook → Create test PR
+GITHUB_TOKEN, OPENAI_API_KEY, WEBHOOK_SECRET
+```
+
+### Step 5: Configure GitHub Webhook (1 min)
+```
+Add webhook with Render service URL
+```
+
+### Step 6: Test (3 min)
+```
+Create test PR → See Agno comment ✅
 ```
 
 ---
@@ -59,13 +70,15 @@ Add GitHub webhook → Create test PR
 ## 📁 Project Structure
 
 ```
-src/                 → Main application
-dashboard/           → Web UI
-tests/              → Unit tests
-RENDER_QUICK_START  → 5 steps to live
-SETUP_GUIDE.md      → Detailed guide
-render.yaml         → Render config
-requirements.txt    → Dependencies
+src/                        → Main application (with Agno agents!)
+dashboard/                  → Web UI (optional)
+tests/                      → Unit tests
+Dockerfile                  → Python 3.11 Docker image
+render.yaml                 → Render config
+runtime.txt                 → Python 3.11 version spec
+RENDER_QUICK_START.md       → Quick start guide
+RENDER_SETUP.md             → Detailed setup
+requirements.txt            → Python dependencies (with Agno)
 ```
 
 ---
@@ -74,9 +87,10 @@ requirements.txt    → Dependencies
 
 | Service | URL |
 |---------|-----|
-| **Render** | https://render.com |
-| **Your Service** | https://agno-security-review.onrender.com |
-| **GitHub** | Your test app repo |
+| **Render Console** | https://render.com/dashboard |
+| **Your Service** | https://agno-security-review-xxxxx.onrender.com |
+| **GitHub Test Repo** | Your test repo URL |
+| **Agno Framework** | https://www.agno.com/ |
 
 ---
 
@@ -84,34 +98,51 @@ requirements.txt    → Dependencies
 
 | Task | Time | Guide |
 |------|------|-------|
-| Deploy on Render | 10 min | RENDER_QUICK_START.md |
-| Full setup | 20 min | SETUP_GUIDE.md |
-| Test buggy app | 5 min | SETUP_GUIDE.md |
-| Understand project | 10 min | README.md |
+| Quick deployment | 10 min | RENDER_QUICK_START.md |
+| Full setup | 20 min | RENDER_SETUP.md |
+| Test buggy app | 5 min | RENDER_QUICK_START.md |
+| Understand Agno | 10 min | AGNO_FRAMEWORK_GUIDE.md |
 
 ---
 
 ## ✨ Why Render?
 
 ```
-✅ Auto-deploys from GitHub (no manual clicking)
-✅ Better performance than Replit
-✅ Always on (even free tier)
-✅ Real production-ready
-✅ Better logs and debugging
+✅ Simple to set up (GitHub integration)
+✅ Auto-deploys from GitHub push
+✅ Docker support (Python 3.11 guaranteed)
+✅ Free tier available for testing
+✅ Fast deployment (5-10 minutes)
+✅ Good for MVP and production
 ✅ Easy environment variables
-✅ Scales easily
+✅ Webhook-friendly
 ```
+
+---
+
+## 🤖 Using Agno Framework
+
+Your system now uses:
+
+```
+✅ Agno AI agents with multi-step reasoning
+✅ Tool autonomy (parse, detect, analyze)
+✅ GPT-4 for intelligent security analysis
+✅ Autonomous decision making
+✅ Memory and state management
+```
+
+See: [AGNO_FRAMEWORK_GUIDE.md](AGNO_FRAMEWORK_GUIDE.md)
 
 ---
 
 ## 🎉 You're Ready!
 
 1. Go to [RENDER_QUICK_START.md](RENDER_QUICK_START.md)
-2. Follow 5 simple steps
+2. Follow 6 simple steps
 3. Deploy in 10 minutes!
 4. Test your buggy app
 
 ---
 
-**Ready to go live on Render?** 🚀
+**Ready to go live on Render with Agno?** 🚀

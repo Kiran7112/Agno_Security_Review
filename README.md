@@ -1,15 +1,17 @@
 # 🛡️ Agno Security Review Service
 
-Autonomous AI-powered code security review using Agno + OpenAI. Detects vulnerabilities in pull requests automatically.
+Autonomous AI agent for code security review using **Agno Framework** + OpenAI GPT-4. Detects vulnerabilities in pull requests automatically with multi-step reasoning.
 
 ## Features
 
+✅ **Agno AI Agents** - Real autonomous agents with multi-step reasoning  
 ✅ **Real-time Security Analysis** - Analyzes PRs within 30 seconds  
-✅ **OpenAI-Powered** - Uses GPT-4 for intelligent analysis  
+✅ **GPT-4 Powered** - Uses OpenAI GPT-4 for intelligent analysis  
 ✅ **OWASP Top 10** - Detects SQL injection, XSS, hardcoded secrets, weak crypto, and more  
+✅ **Tool Autonomy** - Agents call tools independently (parse, detect, analyze)  
 ✅ **GitHub Integration** - Automatic webhook, posts comments on PRs  
 ✅ **Audit Trail** - Compliance-ready logging  
-✅ **Easy Deployment** - Works on Replit, AWS, local machine  
+✅ **Firebase Deployment** - Scales on Google Cloud Run  
 
 ## Quick Start
 
@@ -41,14 +43,21 @@ python main.py
 ## How It Works
 
 ```
-Developer creates PR
+Developer creates PR with code
     ↓ (GitHub webhook)
-Agno Service analyzes code
-    ↓ (OpenAI GPT-4)
-Detects vulnerabilities
+Agno Agent receives code diff
+    ↓ (Multi-step reasoning)
+Agent calls tools:
+  1. parse_code() - Extract additions/deletions
+  2. detect_vulnerability_patterns() - Find suspicious code
+  3. analyze_vulnerability_details() - Deep analysis
+    ↓ (OpenAI GPT-4 reasoning)
+Agent generates findings with context
     ↓
-Posts comment on PR with findings
+Posts comment on PR with recommendations
 ```
+
+**Key Difference:** Uses Agno Framework for autonomous agent reasoning, not just single LLM prompts!
 
 ## Example Output
 
