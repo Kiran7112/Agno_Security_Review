@@ -2,9 +2,8 @@ import re
 import json
 import time
 from typing import Dict, List
-from phi.agent import Agent
-from phi.model.openai import OpenAIChat
-from phi.tools.python import PythonTools
+from agno.agent import Agent
+from agno.models.openai import OpenAIChat
 from src.config import settings
 
 # ============================================================================
