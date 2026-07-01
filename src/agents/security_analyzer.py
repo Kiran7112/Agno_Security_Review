@@ -66,7 +66,6 @@ def detect_path_traversal(code: str) -> str:
 
 code_analyzer_agent = Agent(
     name="CodeAnalyzerAgent",
-    role="Security Code Analyzer",
     model=OpenAIChat(id="gpt-4", api_key=settings.OPENAI_API_KEY),
     tools=[
         parse_code_diff,
@@ -93,7 +92,6 @@ When analyzing code:
 - Format responses as structured JSON
 
 Always be thorough and check for multiple vulnerability types.""",
-    show_tool_calls=False,
     markdown=False,
 )
 
@@ -103,7 +101,6 @@ Always be thorough and check for multiple vulnerability types.""",
 
 vulnerability_analyst_agent = Agent(
     name="VulnerabilityAnalystAgent",
-    role="Security Vulnerability Analyst",
     model=OpenAIChat(id="gpt-4", api_key=settings.OPENAI_API_KEY),
     instructions="""You are an expert security analyst. Given vulnerability findings:
 1. Explain WHY each vulnerability is dangerous
@@ -117,7 +114,6 @@ For each vulnerability:
 - Show impact/consequence
 - Provide remediated code
 - Link to security standards""",
-    show_tool_calls=False,
     markdown=False,
 )
 
